@@ -7,81 +7,60 @@ This project aims to predict stock market prices using advanced Deep Learning an
 ### Use 'pip install -r requirements.txt' to install required libraries.
 
 
-# 📈 Stock Price Prediction using SVR and XGBoost
+# Stock Price Prediction using SVR, XGBoost and LSTM
 
-This project compares the performance of two machine learning models: **Support Vector Regression (SVR)** and **XGBoost Regressor**, in forecasting stock prices. Both models are trained on historical data for AAPL and tested on several major tech stocks to evaluate their predictive accuracy and generalization ability.
-
----
-
-## 📘 Part 1: Support Vector Regression (SVR)
-
-### 🔍 Overview
-
-The SVR model is trained using 15 years of historical closing prices of AAPL. The input features are engineered to include 60-day lag values and moving averages (7-day and 30-day). The trained model is then tested on a selection of other tech stocks to assess generalization.
-
-### ⚙️ Methodology
-
-- **Training stock**: AAPL (2010–2024)
-- **Features**:
-  - Lagged closing prices (up to 60 days)
-  - 7-day moving average
-  - 30-day moving average
-- **Model**: SVR with RBF kernel (`scikit-learn`)
-- **Scaler**: StandardScaler
-- **Test stocks**: GOOG, MSFT, META, AMZN, NVDA, QCOM, AMD, TSLA, NFLX, IBM
-- **Evaluation metric**: RMSE (Root Mean Squared Error)
-
-### 📊 Results
-
-- The trained SVR model was able to **predict with high accuracy** on the following stocks:
-  - GOOG, AMZN, NVDA, QCOM, AMD, IBM
-- All test stocks were plotted with actual vs. predicted prices.
-- RMSE was printed for each stock directly on the plot.
-
-### 💡 Key Insight
-
-Despite being trained on a single stock (AAPL), the SVR model generalized surprisingly well to other tech stocks. This suggests potential similarities in the temporal behavior of companies in the tech sector.
+This project compares two machine learning models (Support Vector Regression (SVR) and XGBoost) and a deep learning model (LSTM) for predicting stock prices. All the models use historical closing prices of tech companies, with the goal of forecasting future prices based on patterns in past data.
 
 ---
 
-## 📗 Part 2: XGBoost Regressor
+## Part 1: SVR Model
 
-### 🔍 Overview
+### Overview
 
-XGBoost is applied to the same prediction task using the same feature set as the SVR model. The model is trained on AAPL stock and evaluated primarily on AAPL.
+The SVR model was trained using 15 years of Apple (AAPL) stock data. The training features included 60-day lag values (previous closing prices), a 7-day moving average, and a 30-day moving average.
 
-### ⚙️ Methodology
+After training the model on AAPL, it was tested on several other tech companies to see if the model could generalize well.
 
-- **Training stock**: AAPL (2014–2024)
-- **Features**:
-  - Lagged closing prices (up to 60 days)
-  - 7-day moving average
-  - 30-day moving average
-- **Model**: XGBRegressor (`xgboost`)
-- **Scaler**: StandardScaler
-- **Evaluation metric**: RMSE
+### Key Details
 
-### 📊 Results
+- Training stock: AAPL  
+- Test stocks: GOOG, MSFT, META, AMZN, NVDA, QCOM, AMD, TSLA, NFLX, IBM  
+- Features: Lag values (60), 7-day MA, 30-day MA  
+- Evaluation: RMSE (Root Mean Squared Error)
 
-- Results presented in the notebook are based on AAPL stock.
-- Despite testing on other stocks and experimenting with different parameter settings (e.g., number of trees, max depth, learning rate), the model did not generalize as well as SVR.
-- The RMSE for AAPL was moderate, but performance on other stocks was inconsistent.
+### Results
 
-### ⚠️ Observations
-
-Tree-based models like XGBoost may struggle with noisy, volatile time series data unless enhanced with external features or hybrid approaches.
+The model gave accurate results for most of the test stocks. Especially for GOOG, AMZN, NVDA, QCOM, AMD, and IBM, the RMSE values were low, and the predicted prices followed the actual trend closely. This suggests that many tech stocks might follow similar price patterns, making it easier for the model to generalize from one stock to others.
 
 ---
 
-## 🛠️ Technologies Used
+## Part 2: XGBoost Model
 
-- Python
-- Jupyter Notebook
-- [yfinance](https://pypi.org/project/yfinance/) – historical stock data
-- [scikit-learn](https://scikit-learn.org/) – SVR, preprocessing, evaluation
-- [xgboost](https://xgboost.readthedocs.io/) – gradient boosting
-- `pandas`, `numpy` – data manipulation
-- `matplotlib` – visualization
+### Overview
+
+XGBoost was also trained using the same AAPL data and the same set of features as the SVR model. It is a gradient boosting method known for performing well on structured data.
+
+### Key Details
+
+- Training stock: AAPL  
+- Features: Lag values (60), 7-day MA, 30-day MA  
+- Model tuning: Tried different settings for the number of trees, depth, and learning rate  
+- Evaluation: RMSE  
+
+### Results
+
+The XGBoost model struggled to give accurate results on AAPL as well as other stocks. Even after adjusting different model parameters and trying other stocks, the predictions were not very consistent. This may be because XGBoost is less suited for handling the type of fluctuations that are common in stock prices.
+
+---
+
+## Tools and Libraries Used
+
+- Python  
+- Jupyter Notebook  
+- yfinance (to get stock data)  
+- scikit-learn (for SVR and preprocessing)  
+- xgboost (for gradient boosting)  
+- pandas, numpy, matplotlib
 
 
 
