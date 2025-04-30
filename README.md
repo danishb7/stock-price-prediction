@@ -53,14 +53,53 @@ The XGBoost model struggled to give accurate results on AAPL as well as other st
 
 ---
 
+## Part 3: LSTM Model
+
+### Overview
+- Built an LSTM (Long Short-Term Memory) network to capture sequential dependencies in stock prices.
+- Trained on the same 15-year AAPL dataset.
+- Input sequences: 30 days of past closing prices.
+- Features: raw closing prices (normalized), no manual lag or moving-average features needed.
+
+### Methodology
+1. **Data Preparation**  
+   - Download AAPL closing prices.  
+   - Normalize the series to the [0, 1] range.  
+   - Create overlapping sequences of length 90 as inputs and the next day’s price as the target.  
+   - Split into 80% training and 20% testing sets.
+
+2. **Model Architecture**  
+   - Dropout layers to reduce overfitting.  
+   - Dense output layer for price prediction.
+
+3. **Training**  
+   - Loss: Mean Squared Error
+   - Optimizer: Adam 
+   - Epochs: 30
+
+4. **Evaluation**  
+   - Compute RMSE on the test set.  
+   - Plot actual vs. predicted prices over time.
+
+### Results
+- The LSTM model captured longer-term trends better than the other two methods in many cases.
+- RMSE on AAPL was comparable to or lower than SVR and XGBoost after sufficient training.
+- Shows that deep sequential models can leverage temporal patterns directly, without manual feature engineering.
+
+
 ## Tools and Libraries Used
 
 - Python  
 - Jupyter Notebook  
-- yfinance (to get stock data)  
+- yfinance (to get stock data)
+- pandas, numpy (data handling and numerical operations)
+- matplotlib (data visualization) 
 - scikit-learn (for SVR and preprocessing)  
 - xgboost (for gradient boosting)  
-- pandas, numpy, matplotlib
+- scipy (optimization utilities)
+- cvxpy (convex optimization)
+- tensorflow and keras (DL experiments)
+- torch (PyTorch-based modeling)
 
 
 
