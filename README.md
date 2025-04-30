@@ -103,7 +103,7 @@ The XGBoost model struggled to give accurate results on AAPL as well as other st
 - **Danish Bhatkar**  
   [GitHub](https://github.com/danishb7) | [LinkedIn](https://www.linkedin.com/in/danish-bhatkar)
 
-- **Mohammed [Last Name]**  
+- **Mohammed Alshurbaji**  
   [GitHub](https://github.com/Mohammadalshurbaji) | [LinkedIn](https://www.linkedin.com/in/mohammadalshurbaji)
 
 
