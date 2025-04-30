@@ -4,3 +4,8 @@ matplotlib
 yfinance
 scikit-learn
 xgboost
+scipy
+cvxpy
+tensorflow
+keras
+torch
