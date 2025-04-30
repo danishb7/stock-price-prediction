@@ -1,7 +1,8 @@
 # Stock-Market-Forecasting
 This project aims to predict stock market prices using advanced Deep Learning and Machine Learning techniques. 
 
-### Use 'pip install -r requirements.txt' to install required libraries.
+#### Use 'pip install -r requirements.txt' to install required libraries.
+
 
 # Stock Price Prediction using SVR, XGBoost and LSTM
 
@@ -54,7 +55,7 @@ The XGBoost model struggled to give accurate results on AAPL as well as other st
 ### Overview
 - Built an LSTM (Long Short-Term Memory) network to capture sequential dependencies in stock prices.
 - Trained on the same 15-year AAPL dataset.
-- Input sequences: 30 days of past closing prices.
+- Input sequences: 90 days of past closing prices.
 - Features: raw closing prices (normalized), no manual lag or moving-average features needed.
 
 ### Methodology
