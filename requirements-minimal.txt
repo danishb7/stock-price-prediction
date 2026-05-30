@@ -1,0 +1,14 @@
+# SVR and XGBoost notebooks
+numpy>=1.24,<3
+pandas>=2.0,<3
+matplotlib>=3.7
+yfinance>=0.2
+scikit-learn>=1.3
+xgboost>=2.0
+
+# LSTM notebook (install full requirements.txt instead)
+# scipy>=1.10
+# cvxpy>=1.4
+# tensorflow>=2.15
+# keras>=3.0
+# torch>=2.0
