@@ -14,6 +14,7 @@ Compare **SVR**, **XGBoost**, and **LSTM** models for forecasting tech stock clo
 - [Quick start](#quick-start)
 - [Notebooks](#notebooks)
 - [Model comparison](#model-comparison)
+- [Results at a glance](#results-at-a-glance)
 - [SVR model](#svr-model)
 - [XGBoost model](#xgboost-model)
 - [LSTM model](#lstm-model)
@@ -30,7 +31,7 @@ stock-price-prediction/
 ├── requirements.txt
 ├── requirements-minimal.txt
 ├── docs/
-│   └── images/              # README screenshots (add exported plots here)
+│   └── images/              # README plots (exported from notebooks)
 └── notebooks/
     ├── 01_svr_stock_prediction.ipynb
     ├── 02_xgboost_stock_prediction.ipynb
@@ -63,6 +64,18 @@ Open notebooks in order under `notebooks/`. For SVR and XGBoost only, you can us
 | **SVR** | Lag + moving-average features | Strong on GOOG, AMZN, NVDA, QCOM, AMD, IBM |
 | **XGBoost** | Structured tabular features | Inconsistent; sensitive to price volatility |
 | **LSTM** | Raw sequential closes | Strong trend capture; less manual feature engineering |
+
+## Results at a glance
+
+Plots exported from the notebooks (see [`scripts/extract_notebook_images.py`](scripts/extract_notebook_images.py) to regenerate).
+
+| SVR (AAPL) | SVR (GOOG transfer) | XGBoost (AAPL) |
+|:---:|:---:|:---:|
+| ![SVR AAPL prediction](docs/images/svr_aapl_prediction.png) | ![SVR GOOG generalization](docs/images/svr_goog_generalization.png) | ![XGBoost AAPL prediction](docs/images/xgboost_aapl_prediction.png) |
+
+| LSTM training fit | LSTM forecast |
+|:---:|:---:|
+| ![LSTM AAPL training](docs/images/lstm_aapl_training.png) | ![LSTM forecast](docs/images/lstm_forecast.png) |
 
 ### SVR RMSE highlights (trained on AAPL)
 
